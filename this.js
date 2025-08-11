@@ -1,7 +1,6 @@
 //===== this in Global
 // console.log(this)
 
-
 //===== this in function expression
 // var x=5
 // const y=6
@@ -22,8 +21,6 @@
 // console.log("Const: ", this.y) //Type error
 // }
 // fn()
-
-
 
 //===== Arrow function "this" looks its Lexical Environment
 //===== Window in this case

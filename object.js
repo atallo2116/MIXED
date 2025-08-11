@@ -1,7 +1,7 @@
-const obj={
-    id:1,
-    name: "Abebe",
-}
+const obj = {
+  id: 1,
+  name: "Abebe",
+};
 
 //===== change object to array =====
 // const arr1=[]

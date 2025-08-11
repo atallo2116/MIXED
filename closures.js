@@ -48,14 +48,13 @@
 
 //Solutions 3: Using Closure 2
 function iteration() {
-  
-    for (var i = 0; i < 4; i++) {
-      function addTime(iCopy) {
-        setTimeout(() => {
-          console.log("I: ", iCopy);
-        }, i * 1000);
+  for (var i = 0; i < 4; i++) {
+    function addTime(iCopy) {
+      setTimeout(() => {
+        console.log("I: ", iCopy);
+      }, i * 1000);
     }
-    addTime(i)
-    }
+    addTime(i);
+  }
 }
 iteration();
