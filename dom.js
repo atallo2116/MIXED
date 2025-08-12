@@ -141,6 +141,7 @@ console.log("1st class name: ", yy.classList[0]);
 // for (c of yy.classList){
 //     console.log("Class: ", c)
 // }
+setTimeout(() => yy.remove(), 3000);
 for (let i = 0; i < yy.classList.length; i++) {
   console.log("Class", i, ": ", yy.classList[i]);
 }

@@ -1,6 +1,13 @@
 // ===== this in Global
 console.log(this);
 
+("use strict");
+function x() {
+  console.log(this);
+}
+x(); //undefined
+window.x();
+
 // ===== this in function expression
 var x = 5;
 const y = 6;
@@ -118,3 +125,75 @@ let user = {
   sayHi,
 };
 user.sayHi(); // Bart
+
+//==== this in call apply and bind
+const student1 = {
+  name: "Abebe",
+  printName: function () {
+    console.log(this.name);
+  },
+};
+// student1.printName()
+const student2 = {
+  name: "Ayele",
+  age: 18,
+  updatedName: this,
+};
+console.log("Updatedcname: ", student2.updatedName); //window
+//call: Invokes the function immediately, passing arguments one by one.
+student1.printName.call(student2); // Output: "Ayele"
+// Using apply — same as call but arguments are passed as an array
+student1.printName.apply(student2); // Output: "Ayele"
+// Using bind — creates a new function permanently bound to student2
+const boundPrintName = student1.printName.bind(student2);
+boundPrintName(); // Output: "Ayele"
+
+//==== this in arrow function
+//==== arrow fun take the outer lexical environment
+const student3 = {
+  name: "John",
+  age: 18,
+  printName: () => {
+    console.log(this);
+  },
+};
+//window b/c the arrow fun is enclosed in global space(global lexical env)
+student3.printName();
+
+const student4 = {
+  name: "John",
+  age: 30,
+  nameOtput: function () {
+    const printName = () => {
+      console.log(this);
+    };
+    printName();
+  },
+};
+//student4 object b/c it is enclosed in the function lexical environment
+student4.nameOtput();
+
+//===== this in DOM
+//=====
+const xx = document.querySelector(".btn");
+xx.addEventListener("click", (e) => {
+  alert(this);
+});
+
+///==== this in OOP
+// ==== this refer object that is currently the context of execution
+class Person {
+  constructor(name) {
+    this.name = name; // 'this' points to the new object
+  }
+}
+const p = new Person("Alice");
+console.log(p.name); // Alice
+
+// ===static methods
+class MathHelper {
+  static description() {
+    console.log(this === MathHelper); // true
+  }
+}
+MathHelper.description(); // true

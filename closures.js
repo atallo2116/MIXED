@@ -10,6 +10,7 @@ console.log(add());
 //or
 console.log(addClosure()());
 
+// ========================================
 // ====== closure with setTimeout to increase an num every 2 seconds
 function iteration() {
   for (var i = 0; i < 5; i++) {
